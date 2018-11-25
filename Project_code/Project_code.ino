@@ -188,7 +188,7 @@ void Blink() {
 
 // Main, System of the device
 void loop() {
-    Time = minute();// sets the vari, (test with second())
+    Time = minute();// sets the time variable
     getHeartRate(); // uses this function to set the current Heart Rate
     getTemperature(); // uses this function to set the current Body Temperature
     getNavigation(); // uses this function to set the current navigation coordinates
