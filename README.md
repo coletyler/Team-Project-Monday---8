@@ -9,7 +9,9 @@ This Git file contains the instructions of how to use the project code for the h
 
 The Testing Code files:
   -
-  -
-  -
-  -
+  - pyMock.py
+  - Mock_Code
+  - UnitTesting
+  - StubOn
+  - StubOff
 These files are used for testing the 
