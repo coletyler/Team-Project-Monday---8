@@ -3,7 +3,7 @@ This Git file contains the instructions of how to use the project code for the h
 
 1. The Arduino project code: with the code for the Arduino you must down load the the _Project_Code_ folder onto the collector Raspberry pi and open this file, and have this code be compiled to the arduino off of the collector Raspberry pi that is connected to the Arduino this will have the code be program and installed on the arduino allowing you to collect your data.  
 
-2. The collector Raspberry pi code: For the collector Raspberry pi the code that you have to run and download on the Raspberry pi is the file call _________ .py this file will collect the 
+2. The collector Raspberry pi code: For the collector Raspberry pi the code that you have to run and download on the Raspberry pi is the file call _________.py_ this file will collect the 
 
 3. The Receiving Raspberry pi code:
 
