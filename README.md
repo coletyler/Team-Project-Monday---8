@@ -16,4 +16,4 @@ The Testing Code files:
   - StubOn
   - StubOff
   
-These files are used for testing the 
+These files are used for testing the hardware and software programs of our group project to demostrate that the device works properly for unit testing, hardware stub testing and _______ testing. All these test files can be found in the _Testing_ folder
