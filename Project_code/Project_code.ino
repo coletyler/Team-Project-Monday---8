@@ -17,6 +17,8 @@ LiquidCrystal lcd(12, 11, 5, 4, 8, 10); // sets up the pins to the LCD screen
 #define HeartRate A0      //sets HeartRate sensor to pin A0
 #define Temperature A1      //sets Temperature sensor to pin A1
 #define contrast 9         //sets the contrast for the LCD screen to pin 9
+#define LOOP_FOR 20000      // this is a variable that that helps loop the Navigation so the Navigation hardware can pick up a proper reading
+#define AVG_LOOP 100         // this is a variable that helps loop heart values to get an aveage reading
 
 boolean inDistress = false; // stores the value of true if in distress
 boolean BtwTemperature = true; // stores the value of the body temperature if between the appropriate values 
@@ -25,7 +27,7 @@ boolean BtwHeartRate = true; // stores the value of the heart rate if between th
 int Time; // Variable that stores the time in minutes (seconds in tests)
 float currentTemperature; // stores the value for the current Temperature of the device
 int currentHeartRate; // stores the value for the current Heart Rate of the device
-double currentNavigation[2]; // stores the value for the current navigational coordinates of the device, currentNavigation[0] = x = latitude, currentNavigation[1] = y = Longitude
+double currentNavigation[2]; // stores the value for the current navigational coordinates of the device, currentNavigation[0] = x = latitude, currentNavigation[1] = y = Longitude, measured in degrees
 
 OneWire oneWire(Temperature); // Setup a oneWire instance to communicate with any OneWire devices  
 DallasTemperature sensors(&oneWire); // Pass our oneWire reference to Dallas Temperature. 
@@ -67,14 +69,12 @@ void setup(){
   serial_connection.begin(9600); // Start up the Software Serial library 
   sensors.begin(); // Start up the Dallas Temperature library 
   pinMode(led, OUTPUT); //define led as an output
-  pinMode(DistressButton, INPUT_PULLUP); //define DistressButton as an input, and because the serial is on it has to be a pullpu
-  pinMode(ResetButton, INPUT_PULLUP); //define ResetButton as an input, and because the serial is on it has to be a pullpu
+  pinMode(DistressButton, INPUT_PULLUP); //define DistressButton as an input, and because the serial is on it has to be a pullup
+  pinMode(ResetButton, INPUT_PULLUP); //define ResetButton as an input, and because the serial is on it has to be a pullup
   pinMode(Temperature, INPUT); //define Temperature as an input
   pinMode(HeartRate, INPUT); //define HeartRate as an input
   pinMode(contrast, OUTPUT); //define contrast as an output
   analogWrite(contrast, 100); // '100' are the set value for the contrast
-//  attachInterrupt(digitalPinToInterrupt(ResetButton), Reset, CHANGE); // creates an interrup on ResetButton to pin 2 (INT0), and when the state is CHANGED at pin 2 it activates the function Reset
-//  attachInterrupt(digitalPinToInterrupt(DistressButton), Distress, CHANGE); // creates an interrup on DistressButton to pin 3 (INT1), and when the state is CHANGED at pin 3 it activates the function Distress
   attachInterrupt(INT0, Reset, CHANGE); // creates an interrup on ResetButton to pin 2 (INT0), and when the state is CHANGED at pin 2 it activates the function Reset
   attachInterrupt(INT1, Distress, CHANGE); // creates an interrup on DistressButton to pin 3 (INT1), and when the state is CHANGED at pin 3 it activates the function Distress
 
@@ -102,7 +102,7 @@ void Alert() {
 //This function set the value of the currentHeartRate
 void getHeartRate() {
   int Rate = 0; // to store the average heart rate
-  for (int i = 0; i < 100; i++) { // this will calculate the average heart rate
+  for (int i = 0; i < AVG_LOOP; i++) { // this will calculate the average heart rate
     Rate = Rate + analogRead(HeartRate)/ 12;
     delay(1); // this will allow it to record a new value for the average
   }
@@ -119,7 +119,7 @@ void getTemperature() {
 //This function set the value of the currentNavigation
 //This function set the value of the currentNavigation
 void getNavigation() {
-  for (int i = 0; i<20000;i++) { // the loop allows the navigation system to have enough time to collect the data 
+  for (int i = 0; i<LOOP_FOR;i++) { // the loop allows the navigation system to have enough time to collect the data 
     while(serial_connection.available()) {
       gps.encode(serial_connection.read()); //this feeds the NMEA data into the libaray one char at a time 
     }
