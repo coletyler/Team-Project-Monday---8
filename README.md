@@ -17,3 +17,16 @@ The Testing Code files:
   - StubOff
   
 These files are used for testing the hardware and software programs of our group project to demostrate that the device works properly for unit testing, hardware stub testing and _______ testing. All these test files can be found in the _Testing_ folder in the information above.
+
+
+Creators of the Code:
+  Cole Tyler
+    - Project_Code
+    - MockCode
+    - pyMock.py
+    - StubOn
+    - StubOff
+    - UnitTesting
+  Pranshu Anand
+    - ______
+    - ______
