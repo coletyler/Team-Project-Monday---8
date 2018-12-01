@@ -20,13 +20,14 @@ These files are used for testing the hardware and software programs of our group
 
 
 Creators of the Code:
-  Cole Tyler
+
+  Cole Tyler:
     - Project_Code
     - MockCode
     - pyMock.py
     - StubOn
     - StubOff
     - UnitTesting
-  Pranshu Anand
+  Pranshu Anand:
     - ______
     - ______
