@@ -103,7 +103,7 @@ void Alert() {
 void getHeartRate() {
   int Rate = 0; // to store the average heart rate
   for (int i = 0; i < AVG_LOOP; i++) { // this will calculate the average heart rate
-    Rate = Rate + analogRead(HeartRate)/ 12;
+    Rate = Rate + analogRead(HeartRate)/ 4;// we divide by 4 to calculate the BPM cause the the sensors counts the number of beats every 60 seconds by BPM is counted every 15 thats why we divide by 4  
     delay(1); // this will allow it to record a new value for the average
   }
   currentHeartRate = Rate/100; // sets the currentHeartRate which is the average heart rate 
