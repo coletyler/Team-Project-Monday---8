@@ -75,8 +75,8 @@ void setup(){
   pinMode(HeartRate, INPUT); //define HeartRate as an input
   pinMode(contrast, OUTPUT); //define contrast as an output
   analogWrite(contrast, 100); // '100' are the set value for the contrast
-  attachInterrupt(INT0, Reset, CHANGE); // creates an interrup on ResetButton to pin 2 (INT0), and when the state is CHANGED at pin 2 it activates the function Reset
-  attachInterrupt(INT1, Distress, CHANGE); // creates an interrup on DistressButton to pin 3 (INT1), and when the state is CHANGED at pin 3 it activates the function Distress
+  attachInterrupt(digitalPinToInterrupt(ResetButton), Reset, CHANGE); // creates an interrup on ResetButton to pin 2 (INT0), and when the state is CHANGED at pin 2 it activates the function Reset
+  attachInterrupt(digitalPinToInterrupt(DistressButton), Distress, CHANGE); // creates an interrup on DistressButton to pin 3 (INT1), and when the state is CHANGED at pin 3 it activates the function Distress
 
 }
 
@@ -113,7 +113,7 @@ void getHeartRate() {
 void getTemperature() {
  sensors.requestTemperatures(); // Send the command to get temperature readings 
  currentTemperature = sensors.getTempCByIndex(0); // gets the first IC on the wire which is the Temperature, 0 refers to the first IC on the wire 
- currentTemperature = ((currentTemperature *9)/5) + 37; // sets the currentTemperature to fahrenheit (personal preference)
+ currentTemperature = ((currentTemperature *9)/5) + 32; // sets the currentTemperature to fahrenheit (personal preference)
 }
 
 //This function set the value of the currentNavigation
