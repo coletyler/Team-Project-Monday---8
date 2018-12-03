@@ -3,9 +3,9 @@ This Git file contains the instructions of how to use the project code for the h
 
 1. The Arduino project code: with the code for the Arduino you must down load the the _Project_Code_ folder onto the collector Raspberry pi and open this file, and have this code be compiled to the arduino off of the collector Raspberry pi that is connected to the Arduino this will have the code be program and installed on the arduino allowing you to collect your data.  
 
-2. The collector Raspberry pi code: For the collector Raspberry pi the code that you have to run and download on the Raspberry pi is the file call _________.py_ this file will take the data that is collected from the Arduino and send it to the receiving Raspberry pi
+2. The collector Raspberry pi code: For the collector Raspberry pi the code that you have to run and download on the Raspberry pi is the file call _pySender.py_ this file will take the data that is collected from the Arduino and send it to the receiving Raspberry pi
 
-3. The Receiving Raspberry pi code: The file _____.java_ has to be download and ran on the the other Raspberry pi this program will collect the data that is being sent for the other Raspberry pi, this Receiving Raspberry pi will only receive data if the collector Raspberry pi is sending anything. All the data received will be stored in a datatbase and displayed 
+3. The Receiving Raspberry pi code: The file _Receiver.java_ has to be download and ran on the the other Raspberry pi this program will collect the data that is being sent for the other Raspberry pi, this Receiving Raspberry pi will only receive data if the collector Raspberry pi is sending anything. All the data received will be stored in a datatbase and displayed 
 
 The Testing Code files:
   - pyMock.py
@@ -14,8 +14,7 @@ The Testing Code files:
   - StubOn
   - StubOff
   
-These files are used for testing the hardware and software programs of our group project to demostrate that the device works properly for unit testing, hardware stub testing and _______ testing. All these test files can be found in the _Testing_ folder in the information above.
-
+These files are used for testing the hardware and software programs of our group project to demostrate that the device works properly for unit testing, hardware stub testing and Distributed System testing. All these test files can be found in the _Testing_ folder in the information above.
 
 Creators of the Code:
 
@@ -26,8 +25,9 @@ Creators of the Code:
     - StubOn
     - StubOff
     - UnitTesting
-    - ______
+    - pySender.py
   
   Pranshu Anand:
-    - ______
-    - ______
+    - CommunicationTesting.py
+    - pySender.py
+    - Receiver.java
