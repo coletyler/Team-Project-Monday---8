@@ -7,8 +7,6 @@ This Git file contains the instructions of how to use the project code for the h
 
 3. The Receiving Raspberry pi code: The file _____.java_ has to be download and ran on the the other Raspberry pi this program will collect the data that is being sent for the other Raspberry pi, this Receiving Raspberry pi will only receive data if the collector Raspberry pi is sending anything. All the data received will be stored in a datatbase and displayed 
 
-For steps 2 and 3 you can both set up these programs to run when the Raspberry pies turn on allowing these programs to run their programs with manually doing anything. We did this with our group project so it could be more convenient and efficent for our device you can do this by the following steps below.
-
 The Testing Code files:
   - pyMock.py
   - MockCode
@@ -28,6 +26,7 @@ Creators of the Code:
     - StubOn
     - StubOff
     - UnitTesting
+    - ______
   
   Pranshu Anand:
     - ______
